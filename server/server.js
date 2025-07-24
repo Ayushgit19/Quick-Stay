@@ -12,7 +12,7 @@ import bookingRouter from "./routes/bookingRoutes.js";
 
 connectDB()
 // connectCloudinary()
-// Node chamged again
+
 
 console.log("In server")
 

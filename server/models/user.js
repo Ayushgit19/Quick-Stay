@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 
+console.log("User hit");
 const userSchema = mongoose.Schema({
     _id: {type: String, required: true},
     username: {type: String, required: true},
