@@ -26,6 +26,7 @@ const app = express();
     app.use("/api/clerk", clerkWebHooks);
 
     // All other routes
+    app.get('/', (req, res) => res.send("API is working"))
     app.use("/api/users", userRouter);
     app.use("/api/hotels", hotelRouter);
     app.use("/api/rooms", roomRouter);
