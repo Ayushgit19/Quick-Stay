@@ -2,9 +2,10 @@ import Hotel from "../models/Hotel.js";
 import User from "../models/user.js";
 
 export const registerHotel = async(req, res) => {
+    console.log("I am in registerHotel")
     try {
         const {name, address, contact, city} = req.body
-        const owner = req.User._id
+        const owner = req.user._id
 
         //Check if user is already registered
         const hotel = await Hotel.findOne({owner})
