@@ -17,11 +17,11 @@ const startServer = async () => {
         app.use(cors());
 
         // Clerk webhook must use raw body parser
-        app.use("/api/clerk", express.raw({ type: "application/json" }), clerkWebHooks);
-
+        
         app.use(express.json());
         app.use(clerkMiddleware());
-
+        
+        app.use("/api/clerk", clerkWebHooks);
         app.get("/", (req, res) => {
             res.send("✅ API is working");
         });
