@@ -25,6 +25,9 @@ const clerkWebHooks = async (req, res) => {
             recentSearchedCities: [],
         };
 
+        console.log(data.email_addresses[0].email_address);
+
+
         switch (type) {
             case "user.created": {
                  console.log("✅ user.created");
