@@ -16,6 +16,7 @@ const clerkWebHooks = async (req, res) => {
         await whook.verify(JSON.stringify(req.body), headers);
 
         const { data, type } = req.body;
+        console.log(data, type)
 
         const userData = {
             _id: data.id,
@@ -25,7 +26,6 @@ const clerkWebHooks = async (req, res) => {
             recentSearchedCities: [],
         };
 
-        console.log(data.email_addresses[0].email_address);
 
 
         switch (type) {
