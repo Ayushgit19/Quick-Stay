@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 // MiddleWare to check if user is authenticated
 

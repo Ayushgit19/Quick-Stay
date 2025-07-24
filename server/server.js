@@ -13,6 +13,7 @@ import bookingRouter from "./routes/bookingRoutes.js";
 connectDB()
 connectCloudinary()
 
+console.log("In server")
 
 const app = express();
 
