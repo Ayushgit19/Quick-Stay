@@ -10,16 +10,17 @@ import roomRouter from "./routes/roomRoutes.js";
 import connectCloudinary from "./configs/cloudinary.js";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-(async () => {
+const startServer = async () => {
   try {
     await connectDB();  // Wait for DB connection before continuing
-
-    app.use(cors());
-    app.use(express.json());
-
     connectCloudinary(); // Cloudinary setup
 
+    app.use(cors());
+    
+    
+    app.use(express.json());
     app.use(clerkMiddleware());
 
     // Clerk Webhook route
@@ -31,11 +32,13 @@ const app = express();
     app.use("/api/hotels", hotelRouter);
     app.use("/api/rooms", roomRouter);
 
-    const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error("❌ Server startup failed:", error.message);
+     process.exit(1); // Exit process to signal failure
   }
-})();
+}
+
+startServer();
