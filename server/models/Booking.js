@@ -1,20 +1,20 @@
 import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema({
-    user: {type: String, ref: "User", requiered: true},
-    room: {type: String, ref: "Room", requiered: true},
-    hotel: {type: String, ref: "Hotel", requiered: true},
-    checkInDate: {type: Date, requiered: true},
-    checkOutDate: {type: Date, requiered: true},
-    totalPrice: {type: Number, requiered: true},
-    guests: {type: Number, requiered: true},
+    user: {type: String, ref: "User", required: true},
+    room: {type: String, ref: "Room", required: true},
+    hotel: {type: String, ref: "Hotel", required: true},
+    checkInDate: {type: Date, required: true},
+    checkOutDate: {type: Date, required: true},
+    totalPrice: {type: Number, required: true},
+    guests: {type: Number, required: true},
     status: {
         type: String,
         enum: ["pending", "confirmed", "cancelled"],
         default: "pending",
     },
-    paymentMethod: {type: String, requiered: true, default: "Pay at Hotel"},
-    isPaid: {type: Boolean, requiered: false},
+    paymentMethod: {type: String, required: true, default: "Pay at Hotel"},
+    isPaid: {type: Boolean, required: true, default: false },
 
 }, {timestamps: true})
 
