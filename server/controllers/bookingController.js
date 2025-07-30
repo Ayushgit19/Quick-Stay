@@ -129,12 +129,12 @@ export const getHotelBookings = async (req, res) => {
 
         // Total Bookings
 
-        const totalBookings = bookings.length()
+        const totalBookings = bookings.length
 
         // Total Revenue
         const totalRevenue = bookings.reduce((acc, booking) => acc + booking.totalPrice, 0)
 
-        res.json({ success: true, dashboardData: { totalBookings, totalRevenue, bookings } })
+        res.json({ success: true, dashBoardData: { totalBookings, totalRevenue, bookings } })
     } catch (error) {
         res.json({ success: false, message: "Failed to fetch bookings" })
     }
